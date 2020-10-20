@@ -41,19 +41,6 @@ namespace PrintSquareApp
                     rectangleOutput += isCharacter(h, w) ? Character : " ";
                 rectangleOutput += "\n";
             }
-            /*for (int i = 0; i < Heigth; i++)
-            {
-                for (int j = 0; j < Width; j++)
-                {
-                    if (i == 0 || i == Heigth - 1 || j == 0 || j == Width - 1)
-                    {
-                        rectangleOutput += Character;
-                        continue;
-                    }
-                    rectangleOutput += " ";
-                }
-                rectangleOutput += "\n";
-            }*/
             return rectangleOutput;
         }
     }
