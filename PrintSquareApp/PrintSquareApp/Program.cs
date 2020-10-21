@@ -14,28 +14,41 @@ namespace PrintSquareApp
         /// <param name="args">Arguments ignored</param>
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the size of the rectangle/square (3x6, 2x2, etc): ");
-            string userInput = Console.ReadLine();
-            Console.WriteLine("Enter character to print the rectangle/square with (ex. #, * etc): ");
-            string character = Console.ReadLine();
+            object output = null;
             try
             {
-                Console.WriteLine(parseUserInput(userInput, character));
+                output = parseUserInput();
             }
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine("Not valid rectangle/square");
+                output = "Not valid rectangle/square, use <int>x<int> ex: 3x3, 4x8";
             }
+            finally
+            {
+                PrintResult(output);
+            }
+        }
+
+        /// <summary>
+        /// Prints the resulting square or error to the console
+        /// </summary>
+        /// <param name="result">The result, either a rectangle or string</param>
+        static void PrintResult(object result)
+        {
+            Console.WriteLine("======= RESULT =======");
+            Console.WriteLine(result);
         }
 
         /// <summary>
         /// Parses the user input for the size of rectangle/square and character to print with.
         /// </summary>
-        /// <param name="userInput">User input formated like 3x3, 9x19 etc...</param>
-        /// <param name="character">A single character</param>
         /// <returns>A Rectangle object</returns>
-        static Rectangle parseUserInput(string userInput, string character)
+        static Rectangle parseUserInput()
         {
+            Console.WriteLine("Enter the size of the rectangle/square (3x6, 2x2, etc): ");
+            string userInput = Console.ReadLine();
+            Console.WriteLine("Enter character to print the rectangle/square with (ex. #, * etc): ");
+            string character = Console.ReadLine();
             string[] userInputParts = userInput.Split('x');
             return new Rectangle(parseSide(userInputParts[0]), parseSide(userInputParts[1]), parseCharacter(character));
         }
@@ -48,7 +61,7 @@ namespace PrintSquareApp
         /// <returns>Integer value of the side</returns>
         static int parseSide(string side)
         {
-            return Math.Abs(Int32.Parse(side));
+            return Math.Abs(int.Parse(side));
         }
 
         /// <summary>
@@ -63,7 +76,7 @@ namespace PrintSquareApp
             {
                 return character.Substring(0, 1);
             }
-            catch (Exception e)
+            catch
             {
                 return "#";
             }
