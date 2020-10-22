@@ -56,7 +56,7 @@ namespace YellowPagesApp
             List < Person > yellowPages = new List<Person>();
             yellowPages.Add(new Person("Sean", "Skinner"));
             yellowPages.Add(new Person("Sebastian", "Porling"));
-            yellowPages.Add(new Person("James", "Bond"));
+            yellowPages.Add(new Person("James", "Bond", "007-007 00 70"));
             yellowPages.Add(new Person("Sean", "Connor"));
             yellowPages.Add(new Person("David", "Stjernqvist"));
             return yellowPages;

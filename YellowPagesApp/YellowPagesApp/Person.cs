@@ -12,6 +12,7 @@ namespace YellowPagesApp
     {
         public string FirstName { get; }
         public string LastName { get; }
+        public string PhoneNumber { get;  }
         public string FullName { get => $"{FirstName} {LastName}"; }
 
         /// <summary>
@@ -23,6 +24,14 @@ namespace YellowPagesApp
         {
             FirstName = firstName;
             LastName = lastName;
+            PhoneNumber = "XXX-XXX XX XX";
+        }
+
+        public Person(string firstName, string lastName, string phoneNumber)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            PhoneNumber = phoneNumber;
         }
 
         /// <summary>
@@ -51,7 +60,7 @@ namespace YellowPagesApp
         /// <returns>Fullname of the person</returns>
         public override string ToString()
         {
-            return FullName;
+            return $"{FullName}: {PhoneNumber}";
         }
     }
 }
